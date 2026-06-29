@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Online 10 Tools Hub - Word Counter, QR Generator, Calculator</title>
+  <meta name="description" content="Use 10 free online tools including word counter, QR generator, password generator, BMI calculator and more. Fast, free and SEO friendly tools hub."/>
+  <meta name="keywords" content="free tools, online tools, word counter, qr generator, password generator, bmi calculator"/>
+  <style>
+    body {font-family: Arial; margin:0; background:#f5f5f5;}
+    header {background:#111; color:#fff; padding:20px; text-align:center;}
+    nav {background:#333; padding:10px; text-align:center;}
+    nav a {color:#fff; margin:10px; text-decoration:none;}
+    section {background:#fff; margin:15px; padding:20px; border-radius:10px;}
+    .ad {text-align:center; margin:20px 0; padding:10px; background:#eee;}
+    footer {background:#111; color:#fff; text-align:center; padding:20px;}
+    textarea, input {width:100%; padding:10px; margin-top:10px;}
+    button {padding:10px 15px; margin-top:10px; cursor:pointer;}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>10 Free Online Tools Hub</h1>
+  <p>Fast | Free | SEO Friendly Tools</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#word">Word Counter</a>
+  <a href="#qr">QR Generator</a>
+  <a href="#pass">Password</a>
+  <a href="#bmi">BMI</a>
+</nav>
+
+<!-- AD BANNER -->
+<div class="ad">
+  <!-- Adsterra Banner Code Here -->
+  YOUR AD CODE HERE
+</div>
+
+<!-- TOOL 1 -->
+<section id="word">
+  <h2>Word Counter Tool</h2>
+  <textarea id="text" placeholder="Type something..."></textarea>
+  <button onclick="countWords()">Count</button>
+  <p id="result"></p>
+</section>
+
+<!-- TOOL 2 -->
+<section id="qr">
+  <h2>QR Code Generator</h2>
+  <input id="qrText" placeholder="Enter text or URL"/>
+  <button onclick="generateQR()">Generate</button>
+  <div id="qrResult"></div>
+</section>
+
+<!-- AD -->
+<div class="ad">YOUR AD CODE HERE</div>
+
+<!-- TOOL 3 -->
+<section id="pass">
+  <h2>Password Generator</h2>
+  <button onclick="genPass()">Generate Password</button>
+  <p id="passResult"></p>
+</section>
+
+<!-- TOOL 4 -->
+<section id="bmi">
+  <h2>BMI Calculator</h2>
+  <input id="weight" placeholder="Weight (kg)"/>
+  <input id="height" placeholder="Height (cm)"/>
+  <button onclick="calcBMI()">Calculate</button>
+  <p id="bmiResult"></p>
+</section>
+
+<footer>
+  <p>© 2026 Free Tools Hub | Privacy Policy | Contact</p>
+</footer>
+
+<!-- JS -->
+<script>
+function countWords(){
+  let text = document.getElementById("text").value;
+  let words = text.trim().split(/\s+/).length;
+  document.getElementById("result").innerText = "Words: " + words;
+}
+
+function generateQR(){
+  let text = document.getElementById("qrText").value;
+  document.getElementById("qrResult").innerHTML =
+  `<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${text}" />`;
+}
+
+function genPass(){
+  let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let pass = "";
+  for(let i=0;i<10;i++){
+    pass += chars.charAt(Math.floor(Math.random()*chars.length));
+  }
+  document.getElementById("passResult").innerText = pass;
+}
+
+function calcBMI(){
+  let w = document.getElementById("weight").value;
+  let h = document.getElementById("height").value / 100;
+  let bmi = w / (h*h);
+  document.getElementById("bmiResult").innerText = "BMI: " + bmi.toFixed(2);
+}
+</script>
+
+</body>
+</html>
